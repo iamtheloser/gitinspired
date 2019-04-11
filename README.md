@@ -1,2 +1,0 @@
-# gitinspired
-Created with CodeSandbox
