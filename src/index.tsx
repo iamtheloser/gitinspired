@@ -1,16 +1,26 @@
 import * as React from "react";
 import { render } from "react-dom";
+import { createGlobalStyle } from "styled-components";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
-import "./styles.css";
+import { Header, Main } from "./components";
 
-function App() {
-  return (
-    <div className="App">
-      <h1>Hello CodeSandbox</h1>
-      <h2>Start editing to see some magic happen!</h2>
-    </div>
-  );
-}
+const GlobalStyle = createGlobalStyle`
+@import url('https://fonts.googleapis.com/css?family=Raleway');
+	body {
+		margin: 0;
+		padding: 0;
+		font-family: 'Raleway', sans-serif;
+	}
+`;
+
+const App = () => (
+  <Router>
+    <GlobalStyle />
+    <Header />
+    <Route path="/" exact component={Main} />
+  </Router>
+);
 
 const rootElement = document.getElementById("root");
 render(<App />, rootElement);
